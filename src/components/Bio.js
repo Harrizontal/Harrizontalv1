@@ -1,10 +1,10 @@
 import React from 'react'
 
 // Import typefaces
-import 'typeface-montserrat'
+import 'typeface-open-sans'
 import 'typeface-merriweather'
 
-import profilePic from './profile-pic.jpg'
+import profilePic from './profile_pic_v2.png'
 import { rhythm } from '../utils/typography'
 
 class Bio extends React.Component {
@@ -27,9 +27,9 @@ class Bio extends React.Component {
           }}
         />
         <p>
-          Written by <strong>Harrison Wong</strong> who lives and works in Singapore building useful things.{' '}
-          <a href="https://twitter.com/harrizontal">
-            You should follow him on Twitter
+          Written by <strong>Harrison Wong</strong> who lives and works in Singapore, building useful things.{' '}
+          <a href="https://www.linkedin.com/in/harrison-wong-bb4bbb8b/" target="_blank">
+            You should connect him on Linkedin
           </a>
         </p>
       </div>
