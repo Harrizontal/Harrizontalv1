@@ -28,7 +28,7 @@ class Bio extends React.Component {
         />
         <p>
           Written by <strong>Harrison Wong</strong> who lives and works in Singapore building useful things.{' '}
-          <a href="https://twitter.com/kylemathews">
+          <a href="https://twitter.com/harrizontal">
             You should follow him on Twitter
           </a>
         </p>
