@@ -6,7 +6,7 @@ import Image from 'gatsby-image';
 
 import Bio from '../components/Bio'
 import styled from "styled-components";
-import Layout from '../components/Layout'
+import Layout from '../components/layout'
 import { rhythm, scale } from '../utils/typography'
 import 'prismjs/themes/prism-okaidia.css' // for code markdown prismjs
 

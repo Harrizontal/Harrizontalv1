@@ -1,24 +1,7 @@
 import React from 'react'
 import { graphql, StaticQuery } from "gatsby"
-import posed, { PoseGroup } from "react-pose";
-import { rhythm, scale } from '../utils/typography'
 import Header from './Header'
 import Footer from './Footer'
-import { checkPropTypes } from 'prop-types';
-
-
-const transitionDuration = 300;
-const transitionDelay = 350;
-
-const Transition = posed.div({
-  enter: {
-    opacity: 1,
-    transition: { duration: transitionDuration },
-    delay: transitionDelay,
-    beforeChildren: true
-  },
-  exit: { opacity: 0, transition: { duration: transitionDuration } }
-});
 
 export default ({location,children, ...props}) => (
 
