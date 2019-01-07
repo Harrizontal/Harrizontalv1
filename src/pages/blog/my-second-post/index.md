@@ -12,7 +12,7 @@ In this short and easy tutorial, we going to learn how to use Selenium-wire (wit
 from seleniumwire import webdriver  # Import from seleniumwire
 import json
 import datetime
-# Create a new instance of the Firefox driver
+# Create a new instance of the Chrome driver
 chrome_options = webdriver.ChromeOptions()
 chrome_options.accept_untrusted_certs = True
 chrome_options.assume_untrusted_cert_issuer = True

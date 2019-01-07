@@ -19,7 +19,6 @@ const Transition = posed.div({
   },
   exit: { opacity: 0, transition: { duration: transitionDuration } }
 });
-var location = window.location.href
 
 export default ({location,children, ...props}) => (
 
