@@ -1,18 +1,36 @@
+const path = require(`path`)
 module.exports = {
   siteMetadata: {
     title: 'Harrizontal',
     author: 'Harrison Wong',
     description: 'A starter blog demonstrating what Gatsby can do.',
-    siteUrl: 'https://gatsbyjs.github.io/gatsby-starter-blog/',
+    siteUrl: 'https://www.harrizontal.com',
+    menuLinks:[
+      {
+        name: 'Blog',
+        link : '/blog'
+      },
+      {
+        name: 'Projects',
+        link: '/projects'
+      }
+    ]
   },
   pathPrefix: '/',
   plugins: [
-    {
+    { 
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/pages`,
         name: 'pages',
         ignore: [`**/\.*`], // ignore all files with dot (.)
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `assets`,
+        path: path.join(__dirname, `src`, `assets`),
       },
     },
     {
@@ -31,7 +49,13 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
-          'gatsby-remark-prismjs',
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options:{
+              classPrefix: 'language-',
+              showLineNumbers: true,
+            }
+          },
           'gatsby-remark-copy-linked-files',
           'gatsby-remark-smartypants',
         ],

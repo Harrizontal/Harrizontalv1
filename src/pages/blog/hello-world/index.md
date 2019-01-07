@@ -1,12 +1,13 @@
 ---
 title: Hello World
 date: "2018-09-24T14:00:03.284Z"
+posttype: "blog"
+cover_image: "./harrizontal.jpg"
 ---
 
 Hello all!
 
 This is my first post on my new blog! How exciting!
-
 I'm sure I'll write a lot more interesting things in the future!
 
 <!-- Oh, and here's a great quote from this Wikipedia on -->

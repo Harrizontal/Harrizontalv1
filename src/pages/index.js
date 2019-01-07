@@ -2,12 +2,74 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
+import styled from "styled-components";
 
 import Bio from '../components/Bio'
-import Layout from '../components/layout'
-import { rhythm } from '../utils/typography'
+import Footer from '../components/Footer'
+import Layout from '../components/Layout'
+import { rhythm,scale } from '../utils/typography'
+import {withPrefix} from 'gatsby'
+import Img from 'gatsby-image'
+import Introduction from '../components/Introduction';
+
+const IntroSection = styled.div`
+  width: 100%;
+  height: 300px;
+`
+
+const PortfolioSection = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+`
+
+// for image mainly
+const Item = styled.div`
+  position: relative;
+  width: 50%;
+  height: auto;
+  text-align: center;
+  padding: 3em;
+  transition: transform 300ms cubic-bezier(0.39, 0.575, 0.565, 1);
+  @media (max-width: 900px) {
+    flex-basis: 100%;
+    max-width: 100%;
+    width: 100%;
+    margin-top: 3rem !important;
+  }
+`
+
+const Title = styled.h3`
+  font-size: 2rem;
+  margin-top: 1.25rem;
+  margin-bottom: 1rem;
+  transition: all 300ms cubic-bezier(0.39, 0.575, 0.565, 1);
+`
+const StyledLink = styled(Link)`
+  width: 100%;
+  height: 100%;
+  position: relative;
+  text-decoration: none;
+  color: black;
+  transition: transform 300ms cubic-bezier(0.39, 0.575, 0.565, 1);
+  img{
+    margin: 0;
+    transition: transform 300ms cubic-bezier(0.39, 0.575, 0.565, 1);
+  }
+
+  &:hover, img:hover {
+    transform: scale(0.95);
+  }
+
+  &:hover + ${Title}{
+    transform: translateY(-0.5rem);
+  }
+`
 
 class BlogIndex extends React.Component {
+
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const siteDescription = get(
@@ -23,25 +85,7 @@ class BlogIndex extends React.Component {
           meta={[{ name: 'description', content: siteDescription }]}
           title={siteTitle}
         />
-        <Bio />
-        {posts.map(({ node }) => {
-          const title = get(node, 'frontmatter.title') || node.fields.slug
-          return (
-            <div key={node.fields.slug}>
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
-                <Link style={{ boxShadow: 'none' }} to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-              <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-            </div>
-          )
-        })}
+        <Introduction/>
       </Layout>
     )
   }
@@ -67,6 +111,9 @@ export const pageQuery = graphql`
           frontmatter {
             date(formatString: "DD MMMM, YYYY")
             title
+            cover_image{
+              publicURL
+            }
           }
         }
       }
