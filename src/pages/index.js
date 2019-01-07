@@ -91,10 +91,9 @@ class BlogIndex extends React.Component {
       this,
       'props.data.site.siteMetadata.description'
     )
-    const posts = get(this, 'props.data.allMarkdownRemark.edges')
 
     return (
-      <Layout location={this.props.location}>
+      <Layout>
         <Helmet
           htmlAttributes={{ lang: 'en' }}
           meta={[{ name: 'description', content: siteDescription }]}
@@ -130,8 +129,6 @@ class BlogIndex extends React.Component {
             >
             Currently a student in Nanyang Technological University, Singapore. Test
             </h1>
-
-
           </IntroductionText>
       </IntroductionWrapper>
       </Layout>
@@ -147,23 +144,6 @@ export const pageQuery = graphql`
       siteMetadata {
         title
         description
-      }
-    }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "DD MMMM, YYYY")
-            title
-            cover_image{
-              publicURL
-            }
-          }
-        }
       }
     }
   }
