@@ -82,6 +82,7 @@ class BlogIndex extends React.Component {
           title={siteTitle}
         />
         <Introduction/>
+        Test
       </Layout>
     )
   }

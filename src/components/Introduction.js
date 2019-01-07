@@ -50,7 +50,7 @@ const Introduction = () => (
             marginTop: rhythm(3),
           }}
         >
-        Currently a student in Nanyang Technological University, Singapore.
+        Currently a student in Nanyang Technological University, Singapore. Test
         </h1>
 
 
