@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 
 import Layout from '../components/layout'
-import Introduction from '../components/introductiona';
+import { rhythm, scale } from '../utils/typography'
 
 const IntroSection = styled.div`
   width: 100%;
@@ -64,6 +64,25 @@ const StyledLink = styled(Link)`
   }
 `
 
+const IntroductionWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  padding: 0em 4.5em 0em 4.5em;
+  position: relative;
+  flex-direction: column;
+  justify-content: flex-start;
+  @media (max-width: 900px) {
+    padding: 0 2em 0 2em;
+  }
+`
+const IntroductionText = styled.div`
+  width: 100%;
+  color: black;
+  height: auto;
+`
+
 class BlogIndex extends React.Component {
 
   render() {
@@ -81,8 +100,40 @@ class BlogIndex extends React.Component {
           meta={[{ name: 'description', content: siteDescription }]}
           title={siteTitle}
         />
-        <Introduction/>
-        Test
+        <IntroductionWrapper>
+          <IntroductionText>
+          <h1
+                style={{
+                  ...scale(2),
+                  marginBottom: 0,
+                  marginTop: rhythm(4),
+                }}
+              >
+              I am Harrison Wong.
+            </h1>
+            <h1
+              style={{
+                ...scale(2),
+                marginBottom: 0,
+                marginTop: 0,
+              }}
+            >
+            Designer and Developer
+            </h1>
+
+            <h1
+              style={{
+                ...scale(2),
+                marginBottom: rhythm(4),
+                marginTop: rhythm(3),
+              }}
+            >
+            Currently a student in Nanyang Technological University, Singapore. Test
+            </h1>
+
+
+          </IntroductionText>
+      </IntroductionWrapper>
       </Layout>
     )
   }
