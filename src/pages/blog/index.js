@@ -4,9 +4,7 @@ import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import Image from 'gatsby-image';
 
-import Bio from '../../components/Bio'
-import Layout from '../../components/Layout'
-import { rhythm } from '../../utils/typography'
+import Layout from './../../components/Layout'
 import styled from "styled-components";
 
 import {withPrefix} from 'gatsby'

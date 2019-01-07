@@ -4,7 +4,7 @@ import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import Image from 'gatsby-image';
 
-import Layout from '../../components/Layout'
+import Layout from './../../components/Layout'
 import styled from "styled-components";
 import { rhythm, scale } from '../../utils/typography'
 

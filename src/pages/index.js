@@ -4,12 +4,8 @@ import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import styled from "styled-components";
 
-import Bio from '../components/Bio'
-import Footer from '../components/Footer'
-import Layout from '../components/Layout'
-import { rhythm,scale } from '../utils/typography'
-import {withPrefix} from 'gatsby'
-import Img from 'gatsby-image'
+
+import Layout from './../components/Layout'
 import Introduction from '../components/Introduction';
 
 const IntroSection = styled.div`
