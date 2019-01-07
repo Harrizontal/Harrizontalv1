@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 
 import Layout from '../components/layout'
-import Introduction from '../components/introduction';
+import Introduction from '../components/introductiona';
 
 const IntroSection = styled.div`
   width: 100%;
