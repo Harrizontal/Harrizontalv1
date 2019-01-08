@@ -55,7 +55,8 @@ const BlogInfo = styled.div`
 const HeroImage = styled.div`
   width: 800px;
   height: auto;
-  @media (max-width: 900px) {
+  @media (max-width: ${props => props.theme.breakpoint.m}) {
+    width:100%;
     order: 1;
   }
 `

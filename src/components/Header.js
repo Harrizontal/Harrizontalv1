@@ -38,8 +38,12 @@ const NavigationUl = styled.ul`
 `
 const NavigationLi = styled.li`
   text-decoration: none;
-  padding: 0 0 0 50px;
+  padding: 0 0 0 20px;
   margin: 0;
+
+  @media (max-width: ${props => props.theme.breakpoint.s}) {
+    padding: 0 0 0 10px;
+}
 `
 const StyledLink = styled(Link)`
   text-decoration: ${props => props.checked ? "underline" : "none"};
