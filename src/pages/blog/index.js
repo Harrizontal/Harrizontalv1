@@ -19,6 +19,15 @@ const BlogWrapper = styled.div`
   position: relative;
   flex-direction: column;
   justify-content: flex-start;
+
+  @media (max-width: ${props => props.theme.breakpoint.m}) {
+    padding: 4em 2em 4em 2em;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoint.s}) {
+    padding: 4em 1em 4em 1em;
+  }
+
 `
 
 const BlogSection = styled.div`
@@ -37,12 +46,18 @@ const Item = styled.div`
   text-align: center;
   margin-bottom: 2em;
   transition: transform 300ms cubic-bezier(0.39, 0.575, 0.565, 1);
-  @media (max-width: 900px) {
+
+  @media (max-width: ${props => props.theme.breakpoint.m}) {
     flex-direction: column;
     flex-basis: 100%;
     max-width: 100%;
     width: 100%;
   }
+
+  @media (max-width: ${props => props.theme.breakpoint.s}) {
+
+  }
+
 `
 const ImageSection = styled(Image)`
   width: 50%;
@@ -57,7 +72,8 @@ const BlogInfoSection = styled.div`
   height: auto;
   padding: 3em 0 3em 3em;
   text-align: left;
-  @media (max-width: 900px) {
+
+  @media (max-width: ${props => props.theme.breakpoint.m}) {
     max-width: 100%;
     width: 100%;
     padding: 3em 0 3em 0;
@@ -65,9 +81,13 @@ const BlogInfoSection = styled.div`
 `
 
 const Title = styled.h5`
-  color: white;
-  font-size: 2rem;
+  color: ${props => props.theme.colors.bg};
+  font-size: 2em;
   margin: 0;
+
+  @media (max-width: ${props => props.theme.breakpoint.m}) {
+    font-size: 1em;
+  }
 `
 const DateAndReadMore = styled.div`
   display: flex;
@@ -77,19 +97,31 @@ const DateAndReadMore = styled.div`
 const Date = styled.p`
   font-size: 1em;
   margin: 0;
-  color: #bcbbbb;
+  color: ${props => props.theme.colors.greyLight};
+
+  @media (max-width: ${props => props.theme.breakpoint.m}) {
+    font-size: 0.8em;
+  }
 `
 const Except = styled.p`
   font-size: 1em;
-  color: white;
+  color: ${props => props.theme.colors.greyLight};
   margin-top: 1em;
 
+  @media (max-width: ${props => props.theme.breakpoint.m}) {
+    font-size: 0.8em;
+  }
 `
 const StyledLink = styled(Link)`
+  font-size: 1em;
   text-decoration: none;
   color: white;
   transition: opacity 300ms ease-in-out;
 
+  @media (max-width: ${props => props.theme.breakpoint.m}) {
+    font-size: 0.8em;
+  }
+  
   &:hover{
     opacity: 0.8
   }

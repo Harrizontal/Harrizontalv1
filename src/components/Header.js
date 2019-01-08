@@ -43,7 +43,7 @@ const NavigationLi = styled.li`
 `
 const StyledLink = styled(Link)`
   text-decoration: ${props => props.checked ? "underline" : "none"};
-  color: black;
+  color: ${props => props.theme.colors.text};
   font-family: 'Helvetica Neue','Segoe UI','Helvetica','Arial',sans-serif;
   font-weight: bold;
 `

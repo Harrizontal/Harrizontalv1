@@ -8,62 +8,6 @@ import styled from "styled-components";
 import Layout from '../components/layout'
 import { rhythm, scale } from '../utils/typography'
 
-const IntroSection = styled.div`
-  width: 100%;
-  height: 300px;
-`
-
-const PortfolioSection = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-`
-
-// for image mainly
-const Item = styled.div`
-  position: relative;
-  width: 50%;
-  height: auto;
-  text-align: center;
-  padding: 3em;
-  transition: transform 300ms cubic-bezier(0.39, 0.575, 0.565, 1);
-  @media (max-width: 900px) {
-    flex-basis: 100%;
-    max-width: 100%;
-    width: 100%;
-    margin-top: 3rem !important;
-  }
-`
-
-const Title = styled.h3`
-  font-size: 2rem;
-  margin-top: 1.25rem;
-  margin-bottom: 1rem;
-  transition: all 300ms cubic-bezier(0.39, 0.575, 0.565, 1);
-`
-const StyledLink = styled(Link)`
-  width: 100%;
-  height: 100%;
-  position: relative;
-  text-decoration: none;
-  color: black;
-  transition: transform 300ms cubic-bezier(0.39, 0.575, 0.565, 1);
-  img{
-    margin: 0;
-    transition: transform 300ms cubic-bezier(0.39, 0.575, 0.565, 1);
-  }
-
-  &:hover, img:hover {
-    transform: scale(0.95);
-  }
-
-  &:hover + ${Title}{
-    transform: translateY(-0.5rem);
-  }
-`
-
 const IntroductionWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -79,8 +23,13 @@ const IntroductionWrapper = styled.div`
 `
 const IntroductionText = styled.div`
   width: 100%;
-  color: black;
+  color: ${props => props.theme.colors.text};
   height: auto;
+
+  h1{
+    font-size: 4.5em;
+    margin: 0;
+  }
 `
 
 class BlogIndex extends React.Component {
@@ -101,34 +50,10 @@ class BlogIndex extends React.Component {
         />
         <IntroductionWrapper>
           <IntroductionText>
-          <h1
-                style={{
-                  ...scale(2),
-                  marginBottom: 0,
-                  marginTop: rhythm(4),
-                }}
-              >
-              I am Harrison Wong.
-            </h1>
-            <h1
-              style={{
-                ...scale(2),
-                marginBottom: 0,
-                marginTop: 0,
-              }}
-            >
-            Designer and Developer
-            </h1>
-
-            <h1
-              style={{
-                ...scale(2),
-                marginBottom: rhythm(4),
-                marginTop: rhythm(3),
-              }}
-            >
-            Currently a student in Nanyang Technological University, Singapore. Test
-            </h1>
+            <h1>I am Harrison Wong.</h1>
+            <h1>Designer and Developer</h1>
+            <h1 style={{marginTop: rhythm(2),marginBottom: rhythm(4)}}>Currently a student in Nanyang Technological University, Singapore.</h1>
+          
           </IntroductionText>
       </IntroductionWrapper>
       </Layout>

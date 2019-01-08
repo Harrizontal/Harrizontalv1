@@ -10,6 +10,10 @@ const FooterWrapper = styled.div`
   width: 100%;
   height: 400px;
   position: relative;
+
+  @media (max-width: ${props => props.theme.breakpoint.l}) {
+    flex-direction: column;
+  }
 `
 
 const ContactMe = styled.div`
@@ -17,23 +21,91 @@ const ContactMe = styled.div`
   flex-direction: column;
   flex-wrap: wrap;
   width: 60%;
-  background-color: #393E46;
-  color: white;
+  background-color: ${props => props.theme.colors.greyDark};
+  color: ${props => props.theme.colors.textInvert};
   justify-content: center;
   height: 100%;
+  padding: 0 2em 0 2em;
   align-items: center;
+
+  h1{
+    font-size: 4em;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+
+  h2{
+    font-size: 2.8em;
+    margin: 0;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoint.l}) {
+    width: 100%;
+    h1{
+      font-size: 2.5em;
+      margin: 0;
+      margin-bottom: 10px;
+    }
+
+    h2{
+      font-size: 2.2em;
+      margin: 0;
+    }
+  }
+
+  @media (max-width: ${props => props.theme.breakpoint.m}) {
+    h1{
+      font-size: 2em;
+      margin: 0;
+      margin-bottom: 10px;
+    }
+
+    h2{
+      font-size: 1.8em;
+      margin: 0;
+    }
+  }
+
+  @media (max-width: ${props => props.theme.breakpoint.s}) {
+    h1{
+      font-size: 1.5em;
+      margin: 0;
+      margin-bottom: 10px;
+    }
+
+    h2{
+      font-size: 1.2em;
+      margin: 0;
+    }
+  }
+
 `
 
 const FollowMe = styled.div`
-display: flex;
-flex-direction: row;
-flex-wrap: wrap;
-width: 40%;
-background-color: #F2F2F2;
-color: #393E46;
-justify-content: center;
-height: 100%;
-align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 40%;
+  background-color: #F2F2F2;
+  color: ${props => props.theme.colors.greyDark};
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+
+  @media (max-width: ${props => props.theme.breakpoint.l}) {
+    width: 100%;
+    h1{
+      font-size: 2.5em;
+      margin: 0;
+      margin-bottom: 10px;
+    }
+
+    h2{
+      font-size: 2.2em;
+      margin: 0;
+    }
+  }
+
 `
 const SocialIcon2 = styled(SocialIcon)`
   transition: opacity 300ms ease-in-out;
@@ -46,20 +118,8 @@ const SocialIcon2 = styled(SocialIcon)`
 const Footer = () => (
   <FooterWrapper>
     <ContactMe>
-      <h1 style={{
-            ...scale(2),
-            marginBottom: 0,
-            marginTop: 0,
-          }}>
-          Say hi!
-      </h1>
-      <h2 style={{
-            ...scale(1),
-            marginBottom: 0,
-            marginTop: rhythm(0.5),
-          }}>
-          Harrisonwjy@hotmail.com
-      </h2>
+          <h1>Say hi!</h1>
+          <h2>Harrisonwjy@hotmail.com</h2>
     </ContactMe>
     <FollowMe>
     <h3 style={{

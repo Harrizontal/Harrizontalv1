@@ -63,20 +63,28 @@ const Date = styled.p`
   margin: 0;
   font-size: 1em;
   margin-bottom: 10px;
+  @media (max-width: ${props => props.theme.breakpoint.m}) {
+    font-size: 0.8em;
+  }
 `
 const Title = styled.h1`
   margin: 0;
-  font-size: 3em;
+  font-size: 2em;
   margin-bottom: 10px;
 `
 const Description = styled.p`
   margin: 0;
+  font-size: 1em;
   color: rgba(0,0,0,.54);
+
+  @media (max-width: ${props => props.theme.breakpoint.m}) {
+    font-size: 0.8em;
+  }
 `
 const Blog = styled.div`
   width: 100%;
   height: auto;
-  font-size: 1.2em;
+  font-size: 1em;
   padding: 5em 10em 0 10em;
   @media (max-width: 1200px) {
     padding: 5em 2em 0 2em;

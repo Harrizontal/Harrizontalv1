@@ -2,9 +2,12 @@ import React from 'react'
 import { graphql, StaticQuery } from "gatsby"
 import Header from './Header'
 import Footer from './Footer'
+import { ThemeProvider } from 'styled-components';
+import theme from '../../config/theme';
 
-export default ({location,children, ...props}) => (
 
+
+export default ({location,children}) => (
   <StaticQuery
     query={graphql`
       query SiteMetadata {
@@ -21,10 +24,13 @@ export default ({location,children, ...props}) => (
     `}
     render = {data => (
       <div>
-       
-        <Header siteTitle={data.site.siteMetadata.title} menuLinks={data.site.siteMetadata.menuLinks} pathname={isValid(location)}></Header>
-        {children}
-        <Footer/>
+          <ThemeProvider theme={theme}>
+            <React.Fragment>
+              <Header siteTitle={data.site.siteMetadata.title} menuLinks={data.site.siteMetadata.menuLinks} pathname={isValid(location)}></Header>
+              {children}
+              <Footer/>
+            </React.Fragment>
+          </ThemeProvider>
       </div>
     )}
   />
