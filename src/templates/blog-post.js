@@ -78,7 +78,7 @@ const Description = styled.p`
   color: rgba(0,0,0,.54);
 
   @media (max-width: ${props => props.theme.breakpoint.m}) {
-    font-size: 0.8em;
+    font-size: 0.9em;
   }
 `
 const Blog = styled.div`

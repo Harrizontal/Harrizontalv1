@@ -11,7 +11,7 @@ const HeaderWrapper = styled.div`
   position: relative;
   padding: 4em 4.5em 4em 4.5em;
   justify-content: space-between;
-  @media (max-width: 900px) {
+  @media (max-width: ${props => props.theme.breakpoint.m}) {
     width: 100%;
     padding: 1.5em 2em 1.5em 2em;
   }
@@ -47,20 +47,23 @@ const StyledLink = styled(Link)`
   font-family: 'Helvetica Neue','Segoe UI','Helvetica','Arial',sans-serif;
   font-weight: bold;
 `
+const HarrizontalLink = styled(Link)`
+  font-size: 1em;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: none;
 
+  @media (max-width: ${props => props.theme.breakpoint.m}) {
+      font-size: 0.5em;
+      margin: 0;
+  }
+`
 const Header = ({ siteTitle, menuLinks ,pathname}) => (
   <HeaderWrapper>
     <HeaderTitle>
-      <Link
-        style={{
-          boxShadow: 'none',
-          textDecoration: 'none',
-          color: 'inherit',
-        }}
-        to={'/'}
-      >
+      <HarrizontalLink to={'/'}>
         Harrizontal
-      </Link>
+      </HarrizontalLink>
     </HeaderTitle>
     <NavigationDiv>
       <NavigationUl>

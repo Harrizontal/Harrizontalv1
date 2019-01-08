@@ -55,7 +55,7 @@ const Item = styled.div`
   }
 
   @media (max-width: ${props => props.theme.breakpoint.s}) {
-
+    margin-bottom: 1em;
   }
 
 `
@@ -76,16 +76,36 @@ const BlogInfoSection = styled.div`
   @media (max-width: ${props => props.theme.breakpoint.m}) {
     max-width: 100%;
     width: 100%;
-    padding: 3em 0 3em 0;
+    padding: 1em 0 3em 0;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoint.s}) {
+    max-width: 100%;
+    width: 100%;
+    padding: 1em 0 1em 0;
   }
 `
 
-const Title = styled.h5`
+const Title = styled(Link)`
+  text-decoration: none;
+  box-shadow: none;
   color: ${props => props.theme.colors.bg};
+  line-height: 39.5px; 
   font-size: 2em;
+  font-weight: bold;
   margin: 0;
+  transition: opacity 300ms ease-in-out;
+
+  &:hover{
+    opacity: 0.7;
+  }
 
   @media (max-width: ${props => props.theme.breakpoint.m}) {
+    font-size: 1.7em;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoint.s}) {
+    line-height: 18px; 
     font-size: 1em;
   }
 `
@@ -152,7 +172,7 @@ class BlogIndex extends React.Component {
               <Item key={node.fields.slug}>
                     <ImageSection fluid={node.frontmatter.cover_image.childImageSharp.fluid}/>
                     <BlogInfoSection>
-                      <Title>{title}</Title>
+                      <Title to={node.fields.slug}>{title}</Title>
                       <Except>{node.excerpt }</Except>
                       <DateAndReadMore>
                         <Date>{node.frontmatter.date}</Date>
