@@ -134,6 +134,7 @@ const Footer = () => (
       <SocialIcon2 url="https://www.linkedin.com/in/harrison-wong-bb4bbb8b/" bgColor="#393E46"/>
       <SocialIcon2 url="https://www.behance.net/harrizontal" bgColor="#393E46" />
       <SocialIcon2 url="https://www.instagram.com/harrizontal" bgColor="#393E46" />
+      <SocialIcon2 url="https://www.github.com/harrizontal" bgColor="#393E46" />
     </FollowMe>
   </FooterWrapper>
 )
