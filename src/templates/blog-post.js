@@ -10,6 +10,13 @@ import Layout from '../components/layout'
 import { rhythm, scale } from '../utils/typography'
 import 'prismjs/themes/prism-okaidia.css' // for code markdown prismjs
 
+import {
+  TransitionGroup,
+  Transition,
+} from "react-transition-group";
+
+
+
 const BlogWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -96,6 +103,7 @@ const Blog = styled.div`
   
 `
 class BlogPostTemplate extends React.Component {
+
   render() {
     const post = this.props.data.markdownRemark
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')

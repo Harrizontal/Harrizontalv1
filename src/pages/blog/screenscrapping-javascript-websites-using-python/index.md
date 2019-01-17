@@ -2,12 +2,13 @@
 title: Screenscrapping JavaScript Websites using Python
 date: "2018-12-14T23:46:37.121Z"
 posttype: "blog"
-cover_image: "./simlim.jpg"
+cover_image: "./datascrapper.jpeg"
 description: Screenscrapers open your website in a real browser (e.g FireFox, Chrome, etc), getting the HTML, and then use a HTML parse to extract the desired data.
 ---
 
 In this short and easy tutorial, we going to learn how to use Selenium-wire (with selenium) to extract information from a JavaScript heavy website.
 
+In order to run the codes, you need to have some prior knowledge on Selenium 
 ```python
 from seleniumwire import webdriver  # Import from seleniumwire
 import json

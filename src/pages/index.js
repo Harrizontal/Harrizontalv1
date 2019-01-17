@@ -74,8 +74,7 @@ class BlogIndex extends React.Component {
           <IntroductionText>
             <h1>I am Harrison Wong.</h1>
             <h1>Designer and Developer</h1>
-            <h1>Currently a student in Nanyang Technological University, Singapore.</h1>
-          
+            <h1>Currently a student at Nanyang Technological University, Singapore.</h1>
           </IntroductionText>
       </IntroductionWrapper>
       </Layout>
