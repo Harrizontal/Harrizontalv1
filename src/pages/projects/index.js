@@ -142,7 +142,7 @@ class BlogIndex extends React.Component {
         />
         <PortfolioWrapper>
           <PorfolioIntroSection>
-            <h1> Opps. Check it out soon!</h1>
+            <h1> Coming soon.</h1>
           </PorfolioIntroSection>
          </PortfolioWrapper>
       </Layout>
