@@ -8,6 +8,8 @@ import styled from "styled-components";
 import Layout from '../components/layout'
 import { rhythm, scale } from '../utils/typography'
 
+import Fade from 'react-reveal/Fade';
+
 const IntroductionWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -71,11 +73,13 @@ class BlogIndex extends React.Component {
           title={siteTitle}
         />
         <IntroductionWrapper>
-          <IntroductionText>
-            <h1>I am Harrison Wong.</h1>
-            <h1>Designer and Developer</h1>
-            <h1>Currently a student at Nanyang Technological University, Singapore.</h1>
-          </IntroductionText>
+          <Fade>
+            <IntroductionText>
+              <h1>I am Harrison Wong.</h1>
+              <h1>Designer and Developer</h1>
+              <h1>Currently a student at Nanyang Technological University, Singapore.</h1>
+            </IntroductionText>
+          </Fade>
       </IntroductionWrapper>
       </Layout>
     )

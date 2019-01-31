@@ -10,13 +10,6 @@ import Layout from '../components/layout'
 import { rhythm, scale } from '../utils/typography'
 import 'prismjs/themes/prism-okaidia.css' // for code markdown prismjs
 
-import {
-  TransitionGroup,
-  Transition,
-} from "react-transition-group";
-
-
-
 const BlogWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -51,11 +44,16 @@ const BlogInfo = styled.div`
   display: flex;
   flex-direction: column;
   padding-right: 1em;
-  @media (max-width: 900px) {
+
+  @media (max-width: ${props => props.theme.breakpoint.m}) {
     padding-right: 0em;
     width: 100%;
     order: 2;
-    padding: 2em;
+    padding: 1em 2em 0em 2em;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoint.s}) {
+    padding: 1em 1em 0em 1em;
   }
 `
 
@@ -70,7 +68,7 @@ const HeroImage = styled.div`
 const Date = styled.p`
   margin: 0;
   font-size: 1em;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   @media (max-width: ${props => props.theme.breakpoint.m}) {
     font-size: 0.8em;
   }
@@ -88,17 +86,19 @@ const Description = styled.p`
   @media (max-width: ${props => props.theme.breakpoint.m}) {
     font-size: 0.9em;
   }
+
 `
 const Blog = styled.div`
   width: 100%;
   height: auto;
-  font-size: 1em;
-  padding: 5em 10em 0 10em;
-  @media (max-width: 1200px) {
-    padding: 5em 2em 0 2em;
+  font-size: 0.9em;
+  padding: 5em 3em 0 3em;
+  @media (max-width: ${props => props.theme.breakpoint.m}) {
+    padding: 3em 2em 4em 2em;
   }
-  @media (max-width: 900px) {
-    padding: 0 2em 0 2em;
+
+  @media (max-width: ${props => props.theme.breakpoint.s}) {
+    padding: 3em 1em 4em 1em;
   }
   
 `
