@@ -9,6 +9,9 @@ import Layout from '../components/layout'
 import { rhythm, scale } from '../utils/typography'
 
 import Fade from 'react-reveal/Fade';
+import {ssrFadeout} from 'react-reveal/globals'; 
+
+ssrFadeout(false);
 
 const IntroductionWrapper = styled.div`
   display: flex;
