@@ -73,7 +73,7 @@ class BlogIndex extends React.Component {
           title={siteTitle}
         />
         <IntroductionWrapper>
-          <Fade>
+          <Fade delay={400}>
             <IntroductionText>
               <h1>I am Harrison Wong.</h1>
               <h1>Designer and Developer</h1>
