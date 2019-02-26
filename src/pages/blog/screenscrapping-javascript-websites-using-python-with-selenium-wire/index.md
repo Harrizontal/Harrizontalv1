@@ -8,9 +8,18 @@ description: Screenscrapers open your website in a real browser (e.g FireFox, Ch
 
 In this short and easy tutorial, we going to learn how to use Selenium-wire (with selenium) to extract information from a JavaScript heavy website.
 
+Let's do some analytic work on how Golden Village display the movie information (list of movies, timeslots, movie halls, etc) in their website. One example is through the Chrome DevTools where you can inspect the HTML(including DOM), CSS and JavaScript files. 
+
+During the process, I realised when Golden Village website took quite some time (not so long) to render their website properly as they are made several HTTP request to retrieve the content such as images, json (through an API endpoint). Hence, I decided to took a look at the [Network Log](https://developers.google.com/web/tools/chrome-devtools/network/#load) of the website through the use of Chrome DevTools. This is what I found - an API endpoint to retrieve the movie information but with a twist, obfuscation with a query parameter, time in milliseconds.
+
+To the best of my knowledge, I realised that there are two ways to retrieve the data. First, I can simply do a HTTP request with a query parameter of the current timestamp, but... I have do a mock up of User Agent header with the request. Subsequently, the query parameter in the API endpoint could be further obfuscrated (e.g current timestamp - 10sec, or +10sec, etc). The second way is to simulate a real user accessing the website through Selenium, and there is no need to mask a User Agent or decipher the API endpoint. However, the cons of using Selenium for screenscrapping is slow performance as compared to the traditional web scrapping methods (e.g beautiful soups, directly call API endpoint). By outweighting the pros and cons of thees two method, I decided to approach the Selenium method because it is the quickest way for me to get these movie information.
+
 [![Image from Gyazo](https://i.gyazo.com/2d1500c9011cf3d8d607480c4025c6a1.gif)](https://gyazo.com/2d1500c9011cf3d8d607480c4025c6a1)
 
-Before diving to the source code, you need to have some prior knowledge on Selenium 
+
+
+Before diving to the source code, you need to have some prior knowledge on Selenium. In addition, you have to [install SeleniumWire](https://pypi.org/project/selenium-wire/) to capture all HTTPS/HTTP requests.
+
 ```python
 from seleniumwire import webdriver  # Import from seleniumwire
 # Create a new instance of the Chrome driver
@@ -53,6 +62,10 @@ def retrieveMovieList():
 retrieveMovieList()
 ```
 
+Execute the python code and wait for the screenscraper to scrap the data from the website.
+
 [![Image from Gyazo](https://i.gyazo.com/4f3875a1f80dfbe898f7843ad0785c3a.gif)](https://gyazo.com/4f3875a1f80dfbe898f7843ad0785c3a)
+
+You should get the result via a json file in the project file directory.
 
 [![Image from Gyazo](https://i.gyazo.com/164aa57efd21a23ec604df3768187381.gif)](https://gyazo.com/164aa57efd21a23ec604df3768187381)
