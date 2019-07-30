@@ -1,13 +1,13 @@
-import React from 'react'
-import { Link, graphql } from 'gatsby'
-import get from 'lodash/get'
-import Helmet from 'react-helmet'
-import Image from 'gatsby-image';
+import React from "react";
+import { Link, graphql } from "gatsby";
+import get from "lodash/get";
+import Helmet from "react-helmet";
+import Image from "gatsby-image";
 
-import Layout from '../../components/layout'
+import Layout from "../../components/layout";
 import styled from "styled-components";
 
-import {withPrefix} from 'gatsby'
+import { withPrefix } from "gatsby";
 
 const BlogWrapper = styled.div`
   background-color: #1c1b1b;
@@ -20,6 +20,10 @@ const BlogWrapper = styled.div`
   flex-direction: column;
   justify-content: flex-start;
 
+  @media (min-width: ${props => props.theme.breakpoint.l}) {
+    padding: 4em 20% 4em 20%;
+  }
+
   @media (max-width: ${props => props.theme.breakpoint.m}) {
     padding: 4em 2em 4em 2em;
   }
@@ -27,8 +31,7 @@ const BlogWrapper = styled.div`
   @media (max-width: ${props => props.theme.breakpoint.s}) {
     padding: 4em 1em 4em 1em;
   }
-
-`
+`;
 
 const BlogSection = styled.div`
   width: 100%;
@@ -37,7 +40,7 @@ const BlogSection = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-`
+`;
 const Item = styled.div`
   position: relative;
   display: flex;
@@ -57,8 +60,7 @@ const Item = styled.div`
   @media (max-width: ${props => props.theme.breakpoint.s}) {
     margin-bottom: 1em;
   }
-
-`
+`;
 const ImageSection = styled(Image)`
   width: 50%;
   height: auto;
@@ -66,7 +68,7 @@ const ImageSection = styled(Image)`
     max-width: 100%;
     width: 100%;
   }
-`
+`;
 const BlogInfoSection = styled.div`
   width: 50%;
   height: auto;
@@ -84,19 +86,19 @@ const BlogInfoSection = styled.div`
     width: 100%;
     padding: 1em 0 1em 0;
   }
-`
+`;
 
 const Title = styled(Link)`
   text-decoration: none;
   box-shadow: none;
   color: ${props => props.theme.colors.bg};
-  line-height: 39.5px; 
+  line-height: 39.5px;
   font-size: 2em;
   font-weight: bold;
   margin: 0;
   transition: opacity 300ms ease-in-out;
 
-  &:hover{
+  &:hover {
     opacity: 0.7;
   }
 
@@ -105,15 +107,15 @@ const Title = styled(Link)`
   }
 
   @media (max-width: ${props => props.theme.breakpoint.s}) {
-    line-height: 18px; 
+    line-height: 18px;
     font-size: 1em;
   }
-`
+`;
 const DateAndReadMore = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-`
+`;
 const Date = styled.p`
   font-size: 1em;
   margin: 0;
@@ -122,7 +124,7 @@ const Date = styled.p`
   @media (max-width: ${props => props.theme.breakpoint.m}) {
     font-size: 0.8em;
   }
-`
+`;
 const Except = styled.p`
   font-size: 1em;
   color: ${props => props.theme.colors.greyLight};
@@ -131,7 +133,7 @@ const Except = styled.p`
   @media (max-width: ${props => props.theme.breakpoint.m}) {
     font-size: 0.8em;
   }
-`
+`;
 const StyledLink = styled(Link)`
   font-size: 1em;
   text-decoration: none;
@@ -141,55 +143,57 @@ const StyledLink = styled(Link)`
   @media (max-width: ${props => props.theme.breakpoint.m}) {
     font-size: 0.8em;
   }
-  
-  &:hover{
-    opacity: 0.8
-  }
-`
 
+  &:hover {
+    opacity: 0.8;
+  }
+`;
 
 class BlogIndex extends React.Component {
   render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
+    const siteTitle = get(this, "props.data.site.siteMetadata.title");
     const siteDescription = get(
       this,
-      'props.data.site.siteMetadata.description'
-    )
-    const posts = get(this, 'props.data.allMarkdownRemark.edges')
+      "props.data.site.siteMetadata.description"
+    );
+    const posts = get(this, "props.data.allMarkdownRemark.edges");
 
     return (
       <Layout location={this.props.location}>
         <Helmet
-          htmlAttributes={{ lang: 'en' }}
-          meta={[{ name: 'description', content: siteDescription }]}
+          htmlAttributes={{ lang: "en" }}
+          meta={[{ name: "description", content: siteDescription }]}
           title={siteTitle}
         />
         <BlogWrapper>
           <BlogSection>
-          {posts.map(({ node }) => {
-            const title = get(node, 'frontmatter.title') || node.fields.slug
-            return (
-              <Item key={node.fields.slug}>
-                    <ImageSection fluid={node.frontmatter.cover_image.childImageSharp.fluid}/>
-                    <BlogInfoSection>
-                      <Title to={node.fields.slug}>{title}</Title>
-                      <Except>{node.excerpt }</Except>
-                      <DateAndReadMore>
-                        <Date>{node.frontmatter.date}</Date>
-                        <StyledLink to={node.fields.slug}>Read more</StyledLink>
-                      </DateAndReadMore>
-                    </BlogInfoSection>
-              </Item>
-            )
-          })}
+            {posts.map(({ node }) => {
+              const title = get(node, "frontmatter.title") || node.fields.slug;
+
+              return (
+                <Item key={node.fields.slug}>
+                  <ImageSection
+                    fluid={node.frontmatter.cover_image.childImageSharp.fluid}
+                  />
+                  <BlogInfoSection>
+                    <Title to={node.fields.slug}>{title}</Title>
+                    <Except>{node.excerpt}</Except>
+                    <DateAndReadMore>
+                      <Date>{node.frontmatter.date}</Date>
+                      <StyledLink to={node.fields.slug}>Read more</StyledLink>
+                    </DateAndReadMore>
+                  </BlogInfoSection>
+                </Item>
+              );
+            })}
           </BlogSection>
         </BlogWrapper>
       </Layout>
-    )
+    );
   }
 }
 
-export default BlogIndex
+export default BlogIndex;
 
 export const pageQuery = graphql`
   query {
@@ -199,8 +203,10 @@ export const pageQuery = graphql`
         description
       }
     }
-    allMarkdownRemark(filter: { fileAbsolutePath: {regex : "\/blog/"}},
-      sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/blog/" } }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
       edges {
         node {
           excerpt
@@ -211,13 +217,13 @@ export const pageQuery = graphql`
           frontmatter {
             date(formatString: "DD MMMM, YYYY")
             title
-            cover_image{
+            cover_image {
               publicURL
-              childImageSharp{
-                fluid(maxWidth: 500, maxHeight: 300){
+              childImageSharp {
+                fluid(maxWidth: 500, maxHeight: 300) {
                   ...GatsbyImageSharpFluid_tracedSVG
                 }
-                fixed{
+                fixed {
                   ...GatsbyImageSharpFixed_tracedSVG
                 }
               }
@@ -227,4 +233,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

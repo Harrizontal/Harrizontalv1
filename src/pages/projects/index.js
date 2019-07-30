@@ -1,12 +1,12 @@
-import React from 'react'
-import { Link, graphql } from 'gatsby'
-import get from 'lodash/get'
-import Helmet from 'react-helmet'
-import Image from 'gatsby-image';
+import React from "react";
+import { Link, graphql } from "gatsby";
+import get from "lodash/get";
+import Helmet from "react-helmet";
+import Image from "gatsby-image";
 
-import Layout from '../../components/layout'
+import Layout from "../../components/layout";
 import styled from "styled-components";
-import { rhythm, scale } from '../../utils/typography'
+import { rhythm, scale } from "../../utils/typography";
 
 const PortfolioWrapper = styled.div`
   display: flex;
@@ -20,20 +20,20 @@ const PortfolioWrapper = styled.div`
   @media (max-width: ${props => props.theme.breakpoint.m}) {
     padding: 0 2em 0 2em;
   }
-`
+`;
 const PorfolioIntroSection = styled.div`
   width: 100%;
   color: black;
   height: auto;
 
-  h1{
+  h1 {
     font-size: 4.5em;
     margin: 0;
     margin-bottom: 2em;
   }
 
   @media (max-width: ${props => props.theme.breakpoint.m}) {
-    h1{
+    h1 {
       font-size: 3em;
       margin: 0;
       margin-bottom: 2em;
@@ -41,24 +41,20 @@ const PorfolioIntroSection = styled.div`
   }
 
   @media (max-width: ${props => props.theme.breakpoint.s}) {
-    h1{
+    h1 {
       font-size: 1.5em;
       margin: 0;
       margin-bottom: 2em;
     }
   }
-
-`
+`;
 const PortfolioSection = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-
-  
-
-`
+`;
 
 // for image mainly
 const Item = styled.div`
@@ -74,84 +70,89 @@ const Item = styled.div`
     width: 100%;
     margin-top: 3rem !important;
   }
-`
+`;
 
 const Title = styled.h3`
   font-size: 1.2em;
   margin-top: 1.25rem;
   margin-bottom: 1rem;
   transition: all 300ms cubic-bezier(0.39, 0.575, 0.565, 1);
-`
+`;
 const StyledLink = styled(Link)`
-  display:block;
+  display: block;
   position: relative;
   transition: transform 300ms cubic-bezier(0.39, 0.575, 0.565, 1);
 
-  &:hover{
+  &:hover {
     transform: scale(0.95);
   }
 
-  &:hover + ${Title}{
+  &:hover + ${Title} {
     transform: translateY(-0.5rem);
   }
-`
+`;
 
 class BlogIndex extends React.Component {
   render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
+    const siteTitle = get(this, "props.data.site.siteMetadata.title");
     const siteDescription = get(
       this,
-      'props.data.site.siteMetadata.description'
-    )
-    const posts = get(this, 'props.data.allMarkdownRemark.edges') 
-    if(posts != undefined){
+      "props.data.site.siteMetadata.description"
+    );
+    const posts = get(this, "props.data.allMarkdownRemark.edges");
+    if (posts != undefined) {
       return (
         <Layout location={this.props.location}>
           <Helmet
-            htmlAttributes={{ lang: 'en' }}
-            meta={[{ name: 'description', content: siteDescription }]}
+            htmlAttributes={{ lang: "en" }}
+            meta={[{ name: "description", content: siteDescription }]}
             title={siteTitle}
           />
           <PortfolioWrapper>
             <PorfolioIntroSection>
-                <h1>My works</h1>
+              <h1>My works</h1>
             </PorfolioIntroSection>
             <PortfolioSection>
               {posts.map(({ node }) => {
-                const title = get(node, 'frontmatter.title') || node.fields.slug
+                const title =
+                  get(node, "frontmatter.title") || node.fields.slug;
                 return (
                   <Item key={node.fields.slug}>
-                      <StyledLink to={node.fields.slug}>
-                          <Image fluid={node.frontmatter.cover_image.childImageSharp.fluid}/>
-                      </StyledLink>
-                      <Title>{title}</Title>
+                    <StyledLink to={node.fields.slug}>
+                      <Image
+                        fluid={
+                          node.frontmatter.cover_image.childImageSharp.fluid
+                        }
+                      />
+                    </StyledLink>
+                    <Title>{title}</Title>
                   </Item>
-                )
+                );
               })}
             </PortfolioSection>
           </PortfolioWrapper>
         </Layout>
-      )
-     }else{
-       return(
+      );
+    } else {
+      return (
         <Layout location={this.props.location}>
-        <Helmet
-          htmlAttributes={{ lang: 'en' }}
-          meta={[{ name: 'description', content: siteDescription }]}
-          title={siteTitle}
-        />
-        <PortfolioWrapper>
-          <PorfolioIntroSection>
-            <h1> Coming soon.</h1>
-          </PorfolioIntroSection>
-         </PortfolioWrapper>
-      </Layout>
-       )
-     }
+          <Helmet
+            htmlAttributes={{ lang: "en" }}
+            meta={[{ name: "description", content: siteDescription }]}
+            title={siteTitle}
+          />
+          <PortfolioWrapper>
+            <PorfolioIntroSection>
+              <h1> Coming soon.</h1>
+            </PorfolioIntroSection>
+          </PortfolioWrapper>
+        </Layout>
+      );
+    }
   }
 }
 
-export default BlogIndex
+export default BlogIndex;
 // export const pageQuery = graphql`
 //   query {
 //     site {
@@ -186,8 +187,9 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      filter: { fileAbsolutePath: {regex : "\/projects/"}},
-      sort: { fields: [frontmatter___date], order: DESC }) {
+      filter: { fileAbsolutePath: { regex: "/projects/" } }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
       edges {
         node {
           excerpt
@@ -197,13 +199,13 @@ export const pageQuery = graphql`
           frontmatter {
             date(formatString: "DD MMMM, YYYY")
             title
-            cover_image{
+            cover_image {
               publicURL
-              childImageSharp{
-                fluid(maxWidth: 200, maxHeight: 200){
+              childImageSharp {
+                fluid(maxWidth: 200, maxHeight: 200) {
                   ...GatsbyImageSharpFluid_tracedSVG
                 }
-                fixed{
+                fixed {
                   ...GatsbyImageSharpFixed_tracedSVG
                 }
               }
@@ -213,4 +215,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
