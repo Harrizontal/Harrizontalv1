@@ -20,8 +20,12 @@ const BlogWrapper = styled.div`
   flex-direction: column;
   justify-content: flex-start;
 
-  @media (min-width: ${props => props.theme.breakpoint.l}) {
-    padding: 4em 20% 4em 20%;
+  @media (min-width: ${props => props.theme.breakpoint.xl}) {
+    padding: 4em 25% 4em 25%;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoint.l}) {
+    padding: 4em 8% 4em 8%;
   }
 
   @media (max-width: ${props => props.theme.breakpoint.m}) {

@@ -19,7 +19,8 @@ const BlogWrapper = styled.div`
   position: relative;
   flex-direction: column;
   justify-content: flex-start;
-  @media (max-width: 900px) {
+
+  @media (max-width: ${props => props.theme.breakpoint.m}) {
     padding: 0;
   }
 `;
@@ -31,7 +32,16 @@ const HeroSection = styled.div`
   height: auto;
   flex-direction: row;
   justify-content: flex-start;
-  @media (max-width: 900px) {
+
+  @media (min-width: ${props => props.theme.breakpoint.xl}) {
+    padding: 3em 20% 4em 20%;
+  }
+
+  @media (mmax-width: ${props => props.theme.breakpoint.l}) {
+    padding: 3em 5% 4em 5%;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoint.m}) {
     flex-direction: column;
     max-width: 100%;
     width: 100%;
@@ -92,8 +102,21 @@ const Blog = styled.div`
   height: auto;
   font-size: 0.9em;
   padding: 5em 3em 0 3em;
+
+  @media (min-width: ${props => props.theme.breakpoint.xl}) {
+    padding: 3em 25% 4em 25%;
+  }
+
+  @media (min-width: ${props => props.theme.breakpoint.l}) {
+    padding: 3em 20% 4em 20%;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoint.l}) {
+    padding: 3em 15% 4em 15%;
+  }
+
   @media (max-width: ${props => props.theme.breakpoint.m}) {
-    padding: 3em 2em 4em 2em;
+    padding: 3em 13% 4em 13%;
   }
 
   @media (max-width: ${props => props.theme.breakpoint.s}) {
