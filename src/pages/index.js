@@ -75,7 +75,7 @@ class BlogIndex extends React.Component {
           <Fade ssrFadeout delay={400}>
             <IntroductionText>
               <h1>I am Harrison Wong.</h1>
-              <h1>Designer and Developer</h1>
+              <h1>I build things.</h1>
               <h1>
                 Currently a student at Nanyang Technological University,
                 Singapore.
